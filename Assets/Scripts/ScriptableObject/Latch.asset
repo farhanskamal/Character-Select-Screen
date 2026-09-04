@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcb437798af58664581208fb6ed23cc0, type: 3}
+  m_Name: Latch
+  m_EditorClassIdentifier: 
+  characterName: Latch
+  characterFullBody: {fileID: 21300000, guid: 8ae917c7dfe4ae546bc866b0ed1dbd12, type: 3}
+  characterPFP: {fileID: 21300000, guid: 8b1d460c6d24f144892c73880a710d4e, type: 3}
+  faceRight: 1
