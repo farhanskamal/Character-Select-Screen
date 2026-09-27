@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Raptor
   characterFullBody: {fileID: 21300000, guid: 87ad590d47d20b242bbeb81d420dc0a5, type: 3}
+  characterFullOuter: {fileID: 21300000, guid: aed4668e7ea9c8a4aac1500e5a379b56, type: 3}
   characterPFP: {fileID: 21300000, guid: 3bb6ecc0e7a7aad42b0dfde18092a263, type: 3}
   faceRight: 1

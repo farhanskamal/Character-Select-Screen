@@ -14,11 +14,15 @@ public class GameController : MonoBehaviour
     public GameObject characterPrefab;
     
     public Image playerOneCharacterImage;
+    public Image playerOneCharacterBImage;
     public Image playerTwoCharacterImage;
-    
+    public Image playerTwoCharacterBImage;
+
     public TextMeshProUGUI playerOneName;
     public TextMeshProUGUI playerTwoName;
     public TextMeshProUGUI lockInStartButtonText;
+    public TextMeshProUGUI TurnText;
+    public GameObject lockInStartButton;
 
     private float fadeDuration = 1.0f;
     public Image fadePanel; 
@@ -45,33 +49,41 @@ public class GameController : MonoBehaviour
     
     private void Start() {
         playerOneCharacterImage.sprite = startSprite;
+        playerOneCharacterBImage.sprite = startSprite;
         playerTwoCharacterImage.sprite = startSprite;
+        playerTwoCharacterBImage.sprite = startSprite;
         playerOneName.text = startName;
         playerTwoName.text = startName;
         
         SetImageAlpha(0f);
         fadePanel.raycastTarget = false;
         
-        lockInStartButtonText.text = "Lock In Player 1";
-        
+        lockInStartButtonText.text = "Confirm";
+        TurnText.text = "Player ONE Select Your Character";
+
+
         foreach (CharacterData character in characters) {
             GameObject obj = Instantiate(characterPrefab, gridParent.transform);
-            obj.GetComponent<CharacterView>().SetView(character.characterName, character.characterFullBody, character.characterPFP, character.faceRight);
+            obj.GetComponent<CharacterView>().SetView(character.characterName, character.characterFullBody, character.characterFullOuter,character.characterPFP, character.faceRight);
         }
     }
 
-    public void UpdateCharacterSelect(string characterName, Sprite characterFullBody, bool faceRight) {
+    public void UpdateCharacterSelect(string characterName, Sprite characterFullBody, Sprite characterFullOuter, bool faceRight) {
         switch (currentState) {
             case State.Player1Choice: {
                 playerOneCharacterImage.sprite = characterFullBody;
+                playerOneCharacterBImage.sprite = characterFullOuter;
                 playerOneName.text = characterName;
                 playerOneCharacterImage.transform.localScale = faceRight ? new Vector3(2f, 2, 2) : new Vector3(-2f, 2, 2);
+                playerOneCharacterBImage.transform.localScale = faceRight ? new Vector3(2f, 2, 2) : new Vector3(-2f, 2, 2);
                 break;
             }
             case State.Player2Choice: {
                 playerTwoCharacterImage.sprite = characterFullBody;
+                playerTwoCharacterBImage.sprite = characterFullOuter;
                 playerTwoName.text = characterName;
                 playerTwoCharacterImage.transform.localScale = faceRight ? new Vector3(-2f, 2, 2) : new Vector3(2f, 2, 2);
+                playerTwoCharacterBImage.transform.localScale = faceRight ? new Vector3(-2f, 2, 2) : new Vector3(2f, 2, 2);
                 break;
             }
         }
@@ -80,18 +92,20 @@ public class GameController : MonoBehaviour
     public void UpdateState() {
         switch (currentState) {
             case State.Player1Choice: {
-                if (playerOneName.text == "???") {
+                if (playerOneName.text == "") {
                     break;
                 }
-                lockInStartButtonText.text = "Lock In Player 2";
-                currentState = State.Player2Choice;
+                    lockInStartButtonText.text = "Confirm";
+                    TurnText.text = "Player TWO Select Your Character";
+                    currentState = State.Player2Choice;
                 break;
             }
             case State.Player2Choice: {
-                if (playerTwoName.text == "???") {
+                if (playerTwoName.text == "") {
                     break;
                 }
-                lockInStartButtonText.text = "Start";
+                TurnText.text = "BEGIN!!!!";
+                lockInStartButton.SetActive(false);
                 currentState = State.StartGame;
                 StartCoroutine(FadeRoutine());
                 break;

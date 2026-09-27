@@ -8,15 +8,17 @@ public class CharacterView : MonoBehaviour
 {
     public string characterName;
     public Sprite characterFullBody;
+    public Sprite characterFullOuter;
     public Sprite characterPFP;
     public bool faceRight;
 
     public Image CharacterPFPImage;
 
-    public void SetView(string characterName, Sprite characterFullBody, Sprite characterPFP, bool faceRight) {
+    public void SetView(string characterName, Sprite characterFullBody, Sprite characterFullOuter, Sprite characterPFP, bool faceRight) {
         //Copy the Values 
         this.characterName = characterName;
         this.characterFullBody = characterFullBody;
+        this.characterFullOuter = characterFullOuter;
         this.characterPFP = characterPFP;
         this.faceRight = faceRight;
         
@@ -25,6 +27,6 @@ public class CharacterView : MonoBehaviour
         CharacterPFPImage.sprite = this.characterPFP;
         
         // Give Button Action
-        transform.GetComponent<Button>().onClick.AddListener(() => GameController.Instance.UpdateCharacterSelect(characterName, characterFullBody, faceRight));
+        transform.GetComponent<Button>().onClick.AddListener(() => GameController.Instance.UpdateCharacterSelect(characterName, characterFullBody, characterFullOuter, faceRight));
     }
 }

@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Candyman
   characterFullBody: {fileID: 21300000, guid: 5c006e39b37314d47ac8b3635f9d5bf5, type: 3}
+  characterFullOuter: {fileID: 21300000, guid: d0324a58f82159c439ef5aaaec004ecb, type: 3}
   characterPFP: {fileID: 21300000, guid: 7331899efbb533f4dbcaf175d3453a0a, type: 3}
   faceRight: 0

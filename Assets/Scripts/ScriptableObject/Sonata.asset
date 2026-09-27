@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Sonata
   characterFullBody: {fileID: 21300000, guid: 5dd1c8f0e89ece949b8ac14a4f70b37e, type: 3}
+  characterFullOuter: {fileID: 21300000, guid: 1c39ca54fc142634295514f040b4d0e7, type: 3}
   characterPFP: {fileID: 21300000, guid: ee46f9953d912ab4d8f4805ffddd87d9, type: 3}
   faceRight: 1

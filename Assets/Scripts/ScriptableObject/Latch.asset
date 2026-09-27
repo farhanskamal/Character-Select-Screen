@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Latch
   characterFullBody: {fileID: 21300000, guid: 8ae917c7dfe4ae546bc866b0ed1dbd12, type: 3}
+  characterFullOuter: {fileID: 21300000, guid: c3730774ef6215143bfd2c72ba8ba090, type: 3}
   characterPFP: {fileID: 21300000, guid: 8b1d460c6d24f144892c73880a710d4e, type: 3}
   faceRight: 1

@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Switch
   characterFullBody: {fileID: 21300000, guid: 39831ed65ce8e964dad135032a4a1d26, type: 3}
+  characterFullOuter: {fileID: 21300000, guid: 24b0d20914c19d8439288cb2816343c6, type: 3}
   characterPFP: {fileID: 21300000, guid: d01784aacc0b0364db5a384ea05e4784, type: 3}
   faceRight: 0
