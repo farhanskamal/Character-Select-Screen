@@ -10,7 +10,10 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     public List<CharacterData> characters = new List<CharacterData>();
-    public GameObject gridParent; 
+    public GameObject gridParent;
+    public GameObject loopedSong;
+    public AudioSource Music;
+    public AudioSource EffectS;
     public GameObject characterPrefab;
     
     public Image playerOneCharacterImage;
@@ -46,7 +49,14 @@ public class GameController : MonoBehaviour
 
         Instance = this;
     }
-    
+
+    IEnumerator PlaySong()
+    {
+        yield return new WaitForSecondsRealtime(4);
+        loopedSong.SetActive(true);
+        Music.Play();
+    }
+
     private void Start() {
         playerOneCharacterImage.sprite = startSprite;
         playerOneCharacterBImage.sprite = startSprite;
@@ -60,17 +70,20 @@ public class GameController : MonoBehaviour
         
         lockInStartButtonText.text = "Confirm";
         TurnText.text = "Player ONE Select Your Character";
+        StartCoroutine(PlaySong());
 
 
         foreach (CharacterData character in characters) {
             GameObject obj = Instantiate(characterPrefab, gridParent.transform);
             obj.GetComponent<CharacterView>().SetView(character.characterName, character.characterFullBody, character.characterFullOuter,character.characterPFP, character.faceRight);
         }
+
     }
 
     public void UpdateCharacterSelect(string characterName, Sprite characterFullBody, Sprite characterFullOuter, bool faceRight) {
         switch (currentState) {
             case State.Player1Choice: {
+                EffectS.Play();
                 playerOneCharacterImage.sprite = characterFullBody;
                 playerOneCharacterBImage.sprite = characterFullOuter;
                 playerOneName.text = characterName;
@@ -79,6 +92,7 @@ public class GameController : MonoBehaviour
                 break;
             }
             case State.Player2Choice: {
+                EffectS.Play();
                 playerTwoCharacterImage.sprite = characterFullBody;
                 playerTwoCharacterBImage.sprite = characterFullOuter;
                 playerTwoName.text = characterName;
@@ -90,11 +104,13 @@ public class GameController : MonoBehaviour
     }
 
     public void UpdateState() {
+        EffectS.Play();
         switch (currentState) {
             case State.Player1Choice: {
                 if (playerOneName.text == "") {
                     break;
                 }
+                    EffectS.Play();
                     lockInStartButtonText.text = "Confirm";
                     TurnText.text = "Player TWO Select Your Character";
                     currentState = State.Player2Choice;
@@ -104,6 +120,11 @@ public class GameController : MonoBehaviour
                 if (playerTwoName.text == "") {
                     break;
                 }
+                EffectS.Play();
+                EffectS.Play();
+                EffectS.Play();
+                EffectS.Play();
+                EffectS.Play();
                 TurnText.text = "BEGIN!!!!";
                 lockInStartButton.SetActive(false);
                 currentState = State.StartGame;

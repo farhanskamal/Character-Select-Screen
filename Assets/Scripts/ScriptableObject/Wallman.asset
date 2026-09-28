@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcb437798af58664581208fb6ed23cc0, type: 3}
+  m_Name: Wallman
+  m_EditorClassIdentifier: 
+  characterName: Wallman
+  characterFullBody: {fileID: 21300000, guid: 24ead8e2c0945164c867a52ea465a66d, type: 3}
+  characterFullOuter: {fileID: 21300000, guid: 63c1728bf3253384fa4644f5da2fd68c, type: 3}
+  characterPFP: {fileID: 21300000, guid: fe190655726de4c448f4571d2c58eb51, type: 3}
+  faceRight: 1
