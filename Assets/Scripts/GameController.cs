@@ -26,6 +26,7 @@ public class GameController : MonoBehaviour
     public TextMeshProUGUI lockInStartButtonText;
     public TextMeshProUGUI TurnText;
     public GameObject lockInStartButton;
+    public Button johm;
 
     private float fadeDuration = 1.0f;
     public Image fadePanel; 
